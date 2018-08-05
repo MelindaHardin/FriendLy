@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--REACT LIBRARY-->
+<script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+<!--REACT DOM LIBRARY-->
+<script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+<!--BABEL LIBRARY-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<!--FontAwesome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
+<div id="app">React has not rendered</div>
+
+
+
+<script type="text/babel">
+//FriendLy COMPLEX component
+function Friendly(props){
+  var friendlyStyle = {
+    display:"inLine-block",
+    margin: 20,
+    height: 300,
+    width: 200,
+    padding: 0, 
+    backgroundColor: "#FFF",
+    WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+    filter: "drop-shadow (0px 0px 5px #555)"
+
+  }
+  return(
+  <div style= {friendlyStyle}>
+    <Avatar img={props.img}/>
+    <UserName user_name= {props.name}/>
+    <GetConnected/>
+  </div>
+  )
+}
+
+
+//Avatar
+function Avatar (props){
+  var avatarStyle = {
+    marginLeft: 24,
+    marginTop: 20, 
+    width: 150, 
+    height: 150,
+    borderRadius: "50%"
+  }
+  return(
+    <img src ={props.img} alt="profile pic" style={avatarStyle}/>
+  )
+}
+
+//UserName
+function UserName (props){
+  var nameStyle = {
+    textAlign: "center",
+    fontSize: 24,
+    fontFamily: "Arial, Helvetica, sans-serif",
+    margin: 20
+  }
+  return (
+    <h1 style = {nameStyle}>{props.user_name}</h1>
+  )
+}
+
+
+//GetConnected COMPLEX component
+function GetConnected(){
+  var GetConnectedStyle={
+    textAlign: "center"
+  }
+
+  return(
+    <div style  = {GetConnectedStyle}>
+    <Like/>
+    <Share/>
+    <Add/>
+    </div>
+  )
+}
+
+var iconStyle = {
+  margin: 20
+}
+
+//Like
+function Like (){
+  return(
+    <i className="fas fa-thumbs-up" style={iconStyle}></i>
+  )
+}
+
+//Share
+function Share (){
+  return (
+    <i className="fas fa-share-alt" style={iconStyle}></i>
+  )
+}
+
+//Add
+function Add (){
+return (
+  <i className="fas fa-user-plus" style={iconStyle}></i>
+)
+}
+
+ReactDOM.render (
+  <div>
+    <Friendly 
+    name="Melinda" 
+    img ="https://media.licdn.com/dms/image/C4E03AQHQMm54OOQUHQ/profile-displayphoto-shrink_200_200/0?e=1538611200&v=beta&t=fYRrW1o_ayLSXaEJho-6forXxmCNk1PWuXzA7MKtUSs"
+    />
+    <Friendly 
+    name="Bob" 
+    img ="https://pbs.twimg.com/profile_images/1002272769352978433/9S4QWSR0_400x400.jpg"
+    />
+    <Friendly 
+    name="Bugs" 
+    img ="https://cdn.europosters.eu/image/1300/posters/bugs-bunny-close-up-i1127.jpg"
+    />
+    <Friendly 
+    name="Goku" 
+    img ="https://pbs.twimg.com/profile_images/833767319973212161/Ft904pMk_400x400.jpg"
+    />
+  </div>,  
+  document.getElementById("app")
+)
+
+
+</script>
+
+</body>
+
+</html>
